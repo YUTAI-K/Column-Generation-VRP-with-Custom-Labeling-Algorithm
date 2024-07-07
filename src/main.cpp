@@ -1,6 +1,6 @@
 #include "Graph.h"
 #include "Solver.h"
-
+#include <random>
 
 // New thought:
 // Implement this: When igonoring algorithm can't find any routes, use incremental resource constraint method to add some resources,
@@ -26,10 +26,15 @@
 // Since we only want routes that have negative cost, why don't change the extending threshhold to 0? Well this might not
 // Work well if we have a lot of negative edges in the middle but, who knows.
 int main() {
-    auto g = generate_random_graph(16u, 1009);
-    auto solver = Solver{g};
+    std::random_device rd; // initializing device
+    auto [g, xs, ys]  = generate_random_graph(24u, rd()); // Generating random graph
+    // Print the grid visualization of the graph
+    print_grid(g, xs, ys);
 
+    // Now start to solve the problem
+    auto solver = Solver{g};
     solver.solve_ignoring_incremental_multiplicity_cg();
 
+    system("pause"); // Avoid instant quit
     return 0;
 }

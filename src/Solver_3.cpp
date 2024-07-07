@@ -115,6 +115,6 @@ void Solver::solve_ignoring_incremental_multiplicity_cg() // ALgorithm 5
         << "Dual_bound = " << dual_bound << '\n'
         << "Gap = " << (primal_bound - dual_bound)/primal_bound << '\n';
     std::cout<< "Columns geenrated: "<< m->get(GRB_IntAttr_NumVars) - g.n_customers() << '\n';
-    std::cout<< "Iterations run: " << iteration;
+    std::cout<< "Iterations run: " << iteration << '\n';
 
 }

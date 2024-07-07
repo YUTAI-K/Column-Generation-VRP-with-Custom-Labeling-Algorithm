@@ -1,11 +1,15 @@
 #ifndef _GRAPH_H
 #define _GRAPH_H
 
+#include <fstream>
 #include <cstdlib>
 #include <map>
 #include <ranges>
 #include <utility>
 #include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/graphviz.hpp>
+#include <cmath>
+
 
 struct Vertex {
     bool departing_depot;
@@ -83,6 +87,10 @@ struct Graph {
     }
 };
 
-Graph generate_random_graph(size_t n_customers, unsigned int seed);
+std::tuple<Graph, std::vector<double>, std::vector<double>> generate_random_graph(size_t n_customers, unsigned int seed);
+void write_graphviz(const Graph& g, const std::string& filename);
+void print_grid(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys);
+void print_graph(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys);
+
 
 #endif

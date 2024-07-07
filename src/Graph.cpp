@@ -2,9 +2,8 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <random>
 #include <algorithm>
-
-Graph generate_random_graph(size_t n_customers, unsigned int seed) {
-    // std::random_device rd; // initializing device
+std::tuple<Graph, std::vector<double>, std::vector<double>>
+generate_random_graph(size_t n_customers, unsigned int seed) {
     std::mt19937 generator{seed}; // selecting generator
     std::uniform_real_distribution<> uni{1.0, 11.0}; // unif(1,11)
     const auto n_vertices = n_customers + 2u; // the plus 2 are vertices of depots
@@ -54,5 +53,71 @@ Graph generate_random_graph(size_t n_customers, unsigned int seed) {
         }
     }
 
-    return g;
+    return {g, xs, ys};
+}
+
+
+
+void write_graphviz(const Graph& g, const std::string& filename) {
+    std::ofstream ofs(filename);
+    boost::write_graphviz(ofs, g.g,
+        boost::make_label_writer(boost::get(&Vertex::demand, g.g)),
+        boost::make_label_writer(boost::get(&Arc::cost, g.g)));
+}
+
+
+
+
+void print_grid(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys) {
+    const int grid_size = 40;
+    std::vector<std::vector<char>> grid(grid_size, std::vector<char>(grid_size, ' '));
+
+    auto get_grid_pos = [&](double x, double y) {
+        int gx = static_cast<int>((x / 11.0) * (grid_size - 1));
+        int gy = static_cast<int>((y / 11.0) * (grid_size - 1));
+        return std::pair<int, int>(gx, gy);
+    };
+
+    for (const auto& [key, vertex] : g.vertices) {
+        auto [gx, gy] = get_grid_pos(xs[key], ys[key]);
+        char mark = 'V';
+        if (g.g[vertex].departing_depot) mark = 'D';
+        else if (g.g[vertex].returning_depot) mark = 'R';
+        grid[gy][gx] = mark;
+    }
+
+    // Print the legend
+    std::cout << "Legend:\n";
+    std::cout << "D: Departing Depot\n";
+    std::cout << "R: Returning Depot\n";
+    std::cout << "V: Customer\n\n";
+
+    // Print the top border
+    std::cout << '+' << std::string(grid_size, '-') << '+' << '\n';
+
+    // Print the grid with side borders
+    for (const auto& line : grid) {
+        std::cout << '|';
+        for (const auto& ch : line) {
+            std::cout << ch;
+        }
+        std::cout << '|' << '\n';
+    }
+
+    // Print the bottom border
+    std::cout << '+' << std::string(grid_size, '-') << '+' << '\n';
+}
+
+void print_graph(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys) {
+    std::cout << "Graph Visualization:\n";
+    print_grid(g, xs, ys);
+    std::cout << '\n';
+    for (const auto& [key, vertex] : g.vertices) {
+        std::cout << "Vertex " << key << " (Demand: " << g.g[vertex].demand << "):\n";
+        auto out_edges = boost::out_edges(vertex, g.g);
+        for (auto edge_it = out_edges.first; edge_it != out_edges.second; ++edge_it) {
+            auto target = boost::target(*edge_it, g.g);
+            std::cout << "  -> Vertex " << target << " (Cost: " << g.g[*edge_it].cost << ")\n";
+        }
+    }
 }

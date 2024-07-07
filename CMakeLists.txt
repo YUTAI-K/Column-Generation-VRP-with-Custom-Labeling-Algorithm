@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
 project(cg)
 
-#if(NOT CMAKE_BUILD_TYPE)
-#    set(CMAKE_BUILD_TYPE "Release")
-#endif()
+
+
 
 set(CMAKE_CXX_STANDARD 23)
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR})

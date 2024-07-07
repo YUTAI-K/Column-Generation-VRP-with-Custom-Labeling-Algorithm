@@ -213,7 +213,7 @@ void Solver::solve_cg() {
         << "Dual_bound = " << dual_bound << '\n'
         << "Gap = " << (primal_bound - dual_bound)/primal_bound << '\n';
     std::cout<< "Columns geenrated: "<< m->get(GRB_IntAttr_NumVars) - g.n_customers() << '\n';
-    std::cout<< "Iterations run: " << iteration;
+    std::cout<< "Iterations run: " << iteration << '\n';
 
 }
 
@@ -327,7 +327,7 @@ void Solver::solve_incremental_cg()
         << "Dual_bound = " << dual_bound << '\n'
         << "Gap = " << (primal_bound - dual_bound)/primal_bound << '\n';
     std::cout<< "Columns geenrated: "<< m->get(GRB_IntAttr_NumVars) - g.n_customers() << '\n';
-    std::cout<< "Iterations run: " << iteration;
+    std::cout<< "Iterations run: " << iteration << '\n';
 }
 
 
@@ -449,5 +449,5 @@ void Solver::solve_incremental_k_best_cg(int k)
         << "Dual_bound = " << dual_bound << '\n'
         << "Gap = " << (primal_bound - dual_bound)/primal_bound << '\n';
     std::cout<< "Columns geenrated: "<< m->get(GRB_IntAttr_NumVars) - g.n_customers() << '\n';
-    std::cout<< "Iterations run: " << iteration;
+    std::cout<< "Iterations run: " << iteration << '\n';
 }
