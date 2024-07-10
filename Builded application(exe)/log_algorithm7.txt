@@ -1,0 +1,164 @@
+Developer: Yutai Ke. For more details consult the readme file and the user manual in the reporsitory.
+Special thanks to Prof. Alberto Santini
+=======================================================
+
+Enter the number of customers (int, better below 20 if you want a quick solution): 22
+Enter the capacity:
+Input 0 to use the default method.
+You can also input a number between 0 and 1 (boundaries not included) to set the capacity to that proportion of the total capacity demand of all customers.
+Or input a number more than 1 to set the capacity limit to that number.
+In all cases, if the number you inputted ends up being smaller than max{All customers' demand}, it will automatically be scaled up to that number.
+25
+Setting the capacity to 25
+Max demand is: 10.7743
+Capacity set to 25
+
+============================================================
+Random graph generated, the visulizaiton is shown bellow:
+
+Legend:
+D: Departing Depot
+R: Returning Depot
+V: Customer
+
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                   V                    |
+|         V                              |
+|              V                V        |
+|          V                             |
+|              V                    D    |
+|                                        |
+|                                        |
+|                                        |
+|                        V               |
+|                                        |
+|                                        |
+|               V           V            |
+|                                        |
+|                               V        |
+|                                        |
+|                      V                 |
+|                          V             |
+|                                      V |
+|                   R                    |
+|                                        |
+|    V                                   |
+|     V                                  |
+|                                        |
+|                              V         |
+|                            V           |
+|                                        |
+|                   V V                  |
+|            V                           |
+|                                        |
+|    V                                   |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                    V   |
+|                                        |
++----------------------------------------+
+
+
+
+Select the solving method:
+1: solve_cg
+2: solve_incremental_cg
+3: solve_incremental_k_best_cg (enter k after selection)
+4: solve_ignoring_incremental_cg
+5: solve_ignoring_incremental_multiplicity_cg
+Enter your choice: 5
+
+
+============================================Start solving the problem
+SP stands for subproblem, MP stands for master problem.
+
+Solved MP. Cost: 219.762
+
+ === Iteration 1 ===
+Solved SP. Found 132 columns with <0 reduced cost.
+Solved MP. Cost: 165.897
+
+ === Iteration 2 ===
+Solved SP. Found 265 columns with <0 reduced cost.
+Solved MP. Cost: 96.5457
+
+ === Iteration 3 ===
+Solved SP. Found 210 columns with <0 reduced cost.
+Solved MP. Cost: 85.4828
+
+ === Iteration 4 ===
+Solved SP. Found 76 columns with <0 reduced cost.
+Solved MP. Cost: 79.972
+
+ === Iteration 5 ===
+Solved SP. Found 38 columns with <0 reduced cost.
+Solved MP. Cost: 77.0137
+
+ === Iteration 6 ===
+Solved SP. Found 24 columns with <0 reduced cost.
+Solved MP. Cost: 76.0862
+
+ === Iteration 7 ===
+Solved SP. Found 7 columns with <0 reduced cost.
+Solved MP. Cost: 75.7843
+
+ === Iteration 8 ===
+        === Ignoring algorithm fails to find any new routes, adding resource(s) with biggest multiplicity ===The firstcustomer with the biggest multiplicity is found, it is customer 18 with multiplicity 3
+Add resources for vertices:
+18
+Current resource size is 1
+Solved SP. Found 1 columns with <0 reduced cost.
+Solved MP. Cost: 75.7843
+
+ === Iteration 9 ===
+        === Ignoring algorithm fails to find any new routes, adding resource(s) with biggest multiplicity ===The firstcustomer with the biggest multiplicity is found, it is customer 18 with multiplicity 2
+Add resources for vertices:
+18
+Current resource size is 1
+Solved SP. Found 1 columns with <0 reduced cost.
+Solved MP. Cost: 75.7843
+
+ === Iteration 10 ===
+        === Ignoring algorithm fails to find any new routes, adding resource(s) with biggest multiplicity ===The firstcustomer with the biggest multiplicity is found, it is customer 18 with multiplicity 1
+Add resources for vertices:
+18
+Current resource size is 1
+
+Solved SP. Found no column with <0 reduced cost.
+
+
+
+=======================================================
+==================== Problem solved ===================
+=======================================================
+Time taken: 62.862 seconds
+
+=== Final active routes ===
+        0 22 3 20 14 23 (12.9924)(0.5)
+        0 10 7 23 (6.43904)(0.625)
+        0 11 1 13 23 (10.5474)(0.5)
+        0 16 12 9 4 23 (12.0392)(0.5)
+        0 15 19 9 4 23 (16.948)(0.25)
+        0 22 17 20 14 13 23 (12.9762)(0.5)
+        0 18 2 5 21 23 (18.2177)(1)
+        0 16 15 9 23 (16.0312)(0.125)
+        0 16 15 19 4 23 (17.0014)(0.25)
+        0 10 8 7 23 (7.56299)(0.125)
+        0 11 8 7 6 23 (8.34799)(0.25)
+        0 17 3 1 6 23 (11.666)(0.5)
+        0 8 12 15 19 23 (16.9231)(0.375)
+        0 16 12 19 9 23 (11.8433)(0.125)
+        0 10 8 11 6 23 (8.32536)(0.25)
+
+Primal_bound = 77.3626
+Dual_bound = 75.7843
+Gap = 0.0204019
+Columns geenrated: 754
+Iterations run: 10
+Press Enter to exit...

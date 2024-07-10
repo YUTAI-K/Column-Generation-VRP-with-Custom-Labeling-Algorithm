@@ -1,0 +1,152 @@
+Developer: Yutai Ke. For more details consult the readme file and the user manual in the reporsitory.
+Special thanks to Prof. Alberto Santini
+=======================================================
+
+Enter the number of customers (int, better below 20 if you want a quick solution): 12
+Enter the capacity:
+Input 0 to use the default method.
+You can also input a number between 0 and 1 (boundaries not included) to set the capacity to that proportion of the total capacity demand of all customers.
+Or input a number more than 1 to set the capacity limit to that number.
+In all cases, if the number you inputted ends up being smaller than max{All customers' demand}, it will automatically be scaled up to that number.
+0
+Using the Default method to generate capacity constraint
+Max demand is: 10.1011
+Arbitary capacity limit is: 21
+Capacity set to 21
+
+============================================================
+Random graph generated, the visulizaiton is shown bellow:
+
+Legend:
+D: Departing Depot
+R: Returning Depot
+V: Customer
+
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|     V             V               V    |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                   V                    |
+|                                        |
+|                                        |
+|    D                                   |
+|                                        |
+|                                        |
+|                                        |
+|                                    V   |
+|                                        |
+|                                        |
+|                 R                      |
+|            V                           |
+|                                        |
+|                              V         |
+|                                        |
+|                                  V     |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                 V                      |
+|                                        |
+|                      V                 |
+|                                        |
+|      V                            V    |
+|                                        |
++----------------------------------------+
+
+
+
+Select the solving method:
+1: solve_cg
+2: solve_incremental_cg
+3: solve_incremental_k_best_cg (enter k after selection)
+4: solve_ignoring_incremental_cg
+5: solve_ignoring_incremental_multiplicity_cg
+Enter your choice: 2
+
+
+============================================Start solving the problem
+SP stands for subproblem, MP stands for master problem.
+
+Solved MP. Cost: 134.368
+
+ === Iteration 1 ===
+ ==========================================================
+ === You are using the incremental shortest path method ===
+ ==========================================================
+
+Add resources for vertices:
+9
+Current resource size is 1
+Total number of node resources added: 1
+Solved SP. Found 127 columns with <0 reduced cost.
+Solved MP. Cost: 74.1154
+
+ === Iteration 2 ===
+ ==========================================================
+ === You are using the incremental shortest path method ===
+ ==========================================================
+
+Add resources for vertices:
+9
+Current resource size is 1
+Total number of node resources added: 1
+Solved SP. Found 22 columns with <0 reduced cost.
+Solved MP. Cost: 67.6954
+
+ === Iteration 3 ===
+ ==========================================================
+ === You are using the incremental shortest path method ===
+ ==========================================================
+
+Add resources for vertices:
+9
+Current resource size is 1
+Total number of node resources added: 1
+Solved SP. Found 5 columns with <0 reduced cost.
+Solved MP. Cost: 66.6117
+
+ === Iteration 4 ===
+ ==========================================================
+ === You are using the incremental shortest path method ===
+ ==========================================================
+
+Add resources for vertices:
+9
+Current resource size is 1
+Total number of node resources added: 1
+Solved SP. Found no column with <0 reduced cost.
+
+
+
+=======================================================
+==================== Problem solved ===================
+=======================================================
+Time taken: 0.347 seconds
+
+=== Final active routes ===
+        0 6 7 12 13 (19.2562)(0.5)
+        0 4 3 8 13 (14.4896)(1)
+        0 11 10 13 (11.3776)(0.75)
+        0 11 6 9 13 (12.181)(0.25)
+        0 9 12 7 13 (18.0919)(0.5)
+        0 1 5 2 13 (18.8828)(1)
+        0 10 6 9 13 (11.9468)(0.25)
+
+Primal_bound = 68.5407
+Dual_bound = 66.6117
+Gap = 0.0281437
+Columns geenrated: 154
+Iterations run: 4
+Press Enter to exit...

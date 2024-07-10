@@ -1,0 +1,222 @@
+Developer: Yutai Ke. For more details consult the readme file and the user manual in the reporsitory.
+Special thanks to Prof. Alberto Santini
+=======================================================
+
+Enter the number of customers (int, better below 20 if you want a quick solution): 15
+Enter the capacity:
+Input 0 to use the default method.
+You can also input a number between 0 and 1 (boundaries not included) to set the capacity to that proportion of the total capacity demand of all customers.
+Or input a number more than 1 to set the capacity limit to that number.
+In all cases, if the number you inputted ends up being smaller than max{All customers' demand}, it will automatically be scaled up to that number.
+1.34
+Setting the capacity to 1.34
+Max demand is: 10.6935
+Capacity set to 10.6935
+
+============================================================
+Random graph generated, the visulizaiton is shown bellow:
+
+Legend:
+D: Departing Depot
+R: Returning Depot
+V: Customer
+
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|           V                      V     |
+|                                        |
+|                             V          |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                     V  |
+|                                        |
+|                         V              |
+|                                        |
+|     V                                  |
+|                                        |
+|                                        |
+|                V                       |
+|                    V                   |
+|                           V            |
+|                                  D     |
+|                                        |
+|                                        |
+|               V                        |
+|                       R                |
+|                                        |
+|                      V                 |
+|                                        |
+|                                        |
+|                           V            |
+|                      V                 |
+|                                        |
+|                        V               |
+|                                     V  |
+|                                        |
+|                                        |
++----------------------------------------+
+
+
+
+Select the solving method:
+1: solve_cg
+2: solve_incremental_cg
+3: solve_incremental_k_best_cg (enter k after selection)
+4: solve_ignoring_incremental_cg
+5: solve_ignoring_incremental_multiplicity_cg
+Enter your choice: 3
+
+
+============================================Start solving the problem
+SP stands for subproblem, MP stands for master problem.
+
+Enter the value of k: 5
+Solved MP. Cost: 125.945
+
+ === Iteration 1 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.784232
+
+Add resources for vertices:
+3 4 5 11
+Current resource size is 4
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 1 is 0.061
+Solved SP. Found 5 columns with <0 reduced cost.
+        0 6 5 11 3 16 (19.5044)
+        0 6 5 3 11 16 (20.6232)
+        0 5 14 11 3 16 (22.1703)
+        0 6 5 11 16 (16.2299)
+        0 4 14 11 16 (14.4932)
+Solved MP. Cost: 100.705
+
+ === Iteration 2 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.634855
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 2 is 0.013
+Solved SP. Found 5 columns with <0 reduced cost.
+        0 3 10 4 16 (10.8577)
+        0 3 4 10 16 (10.8671)
+        0 3 12 4 16 (12.0679)
+        0 6 4 3 16 (18.6869)
+        0 10 4 3 16 (11.4747)
+Solved MP. Cost: 100.705
+
+ === Iteration 3 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.605809
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 3 is 0.012
+Solved SP. Found 5 columns with <0 reduced cost.
+        0 6 14 16 (20.4594)
+        0 10 14 16 (14.3203)
+        0 8 12 16 (9.73855)
+        0 14 10 16 (14.6915)
+        0 3 12 16 (6.68543)
+Solved MP. Cost: 93.3511
+
+ === Iteration 4 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.589212
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 4 is 0.012
+Solved SP. Found 5 columns with <0 reduced cost.
+        0 8 3 16 (8.65213)
+        0 6 5 16 (13.475)
+        0 5 6 16 (14.1487)
+        0 5 14 4 16 (18.9307)
+        0 3 8 16 (10.8283)
+Solved MP. Cost: 91.7362
+
+ === Iteration 5 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.551867
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 5 is 0.012
+Solved SP. Found 5 columns with <0 reduced cost.
+        0 10 4 11 16 (9.0258)
+        0 11 4 10 16 (10.0126)
+        0 10 11 4 16 (10.2407)
+        0 2 3 16 (10.742)
+        0 3 11 10 16 (10.5698)
+Solved MP. Cost: 90.3099
+
+ === Iteration 6 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.547718
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 6 is 0.014
+Solved SP. Found 1 columns with <0 reduced cost.
+        0 10 4 16 (7.92737)
+Solved MP. Cost: 90.3099
+
+ === Iteration 7 ===
+ ==========================================================
+ === You are using the k-best incremental shortest path method ===
+ ==========================================================
+Propotion of negative edges is: 0.547718
+ ==========================================================
+ === You will only return the 5 best routes ===
+ ==========================================================
+run time for iteration 7 is 0.013
+Solved SP. Found no column with <0 reduced cost.
+
+
+
+=======================================================
+==================== Problem solved ===================
+=======================================================
+Time taken: 0.172 seconds
+
+=== Final active routes ===
+        0 1 16 (4.46164)(1)
+        0 7 16 (6.05191)(1)
+        0 9 16 (16.0362)(1)
+        0 13 16 (7.0437)(1)
+        0 15 16 (3.84129)(1)
+        0 4 14 11 16 (14.4932)(0.5)
+        0 10 14 16 (14.3203)(0.5)
+        0 8 12 16 (9.73855)(1)
+        0 6 5 16 (13.475)(1)
+        0 10 4 11 16 (9.0258)(0.5)
+        0 2 3 16 (10.742)(1)
+
+Primal_bound = 91.4876
+Dual_bound = 90.3099
+Gap = 0.0128728
+Columns geenrated: 26
+Iterations run: 7
+Press Enter to exit...

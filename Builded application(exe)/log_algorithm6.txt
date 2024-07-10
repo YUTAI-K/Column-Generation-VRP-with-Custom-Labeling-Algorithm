@@ -1,0 +1,183 @@
+Developer: Yutai Ke. For more details consult the readme file and the user manual in the reporsitory.
+Special thanks to Prof. Alberto Santini
+=======================================================
+
+Enter the number of customers (int, better below 20 if you want a quick solution): 20
+Enter the capacity:
+Input 0 to use the default method.
+You can also input a number between 0 and 1 (boundaries not included) to set the capacity to that proportion of the total capacity demand of all customers.
+Or input a number more than 1 to set the capacity limit to that number.
+In all cases, if the number you inputted ends up being smaller than max{All customers' demand}, it will automatically be scaled up to that number.
+20
+Setting the capacity to 20
+Max demand is: 10.6004
+Capacity set to 20
+
+============================================================
+Random graph generated, the visulizaiton is shown bellow:
+
+Legend:
+D: Departing Depot
+R: Returning Depot
+V: Customer
+
++----------------------------------------+
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|                                        |
+|      V                                 |
+|                                        |
+|                                        |
+|      V               V                 |
+|                   V                    |
+|                                        |
+|    V                                   |
+|                                        |
+|                    V             V     |
+|                             V          |
+|        V                               |
+|                                        |
+|                  V                     |
+|                            R           |
+|            V                 V         |
+|                                        |
+|                                        |
+|                         V              |
+|                                        |
+|                                        |
+|                 D                      |
+|                                        |
+|                                 V      |
+|                                        |
+|                         V              |
+|        V V                             |
+|    V                                   |
+|                                        |
+|                                        |
+|                                        |
+|                V                       |
+|          V                             |
+|                                        |
+|                                        |
++----------------------------------------+
+
+
+
+Select the solving method:
+1: solve_cg
+2: solve_incremental_cg
+3: solve_incremental_k_best_cg (enter k after selection)
+4: solve_ignoring_incremental_cg
+5: solve_ignoring_incremental_multiplicity_cg
+Enter your choice: 4
+
+
+============================================Start solving the problem
+SP stands for subproblem, MP stands for master problem.
+
+Solved MP. Cost: 166.314
+
+ === Iteration 1 ===
+Solved SP. Found 178 columns with <0 reduced cost.
+Solved MP. Cost: 121.413
+
+ === Iteration 2 ===
+Solved SP. Found 174 columns with <0 reduced cost.
+Solved MP. Cost: 80.0956
+
+ === Iteration 3 ===
+Solved SP. Found 65 columns with <0 reduced cost.
+Solved MP. Cost: 74.1508
+
+ === Iteration 4 ===
+Solved SP. Found 25 columns with <0 reduced cost.
+Solved MP. Cost: 73.1882
+
+ === Iteration 5 ===
+Solved SP. Found 10 columns with <0 reduced cost.
+Solved MP. Cost: 73.0744
+
+ === Iteration 6 ===
+Solved SP. Found 1 columns with <0 reduced cost.
+Solved MP. Cost: 72.9561
+
+ === Iteration 7 ===
+Solved SP. Found 3 columns with <0 reduced cost.
+Solved MP. Cost: 72.5444
+
+ === Iteration 8 ===
+        === Ignoring algorithm fails to find any new routes, adding resources ===
+Add resources for vertices:
+3 9 15
+Current resource size is 3
+Solved SP. Found 6 columns with <0 reduced cost.
+Solved MP. Cost: 71.627
+
+ === Iteration 9 ===
+Solved SP. Found 1 columns with <0 reduced cost.
+Solved MP. Cost: 71.627
+
+ === Iteration 10 ===
+        === Ignoring algorithm fails to find any new routes, adding resources ===
+Add resources for vertices:
+3 9 15
+Current resource size is 3
+Solved SP. Found 7 columns with <0 reduced cost.
+Solved MP. Cost: 71.5485
+
+ === Iteration 11 ===
+Solved SP. Found 1 columns with <0 reduced cost.
+Solved MP. Cost: 71.5485
+
+ === Iteration 12 ===
+        === Ignoring algorithm fails to find any new routes, adding resources ===
+Add resources for vertices:
+3 9 15
+Current resource size is 3
+Solved SP. Found 2 columns with <0 reduced cost.
+Solved MP. Cost: 71.5485
+
+ === Iteration 13 ===
+        === Ignoring algorithm fails to find any new routes, adding resources ===
+Add resources for vertices:
+3 9 15
+Current resource size is 3
+
+Solved SP. Found no column with <0 reduced cost.
+
+
+
+=======================================================
+==================== Problem solved ===================
+=======================================================
+Time taken: 30.395 seconds
+
+=== Final active routes ===
+        0 1 20 21 (11.7737)(0.5)
+        0 18 8 6 13 12 21 (17.0361)(0.5)
+        0 18 8 16 21 (11.3349)(0.5)
+        0 17 9 11 21 (13.0662)(0.333333)
+        0 17 11 15 21 (13.9401)(0.333333)
+        0 16 6 3 21 (7.94272)(0.416667)
+        0 10 19 14 21 (8.85487)(0.5)
+        0 4 10 21 (7.66104)(0.5)
+        0 4 5 21 (6.77132)(0.416667)
+        0 17 9 15 5 21 (14.8283)(0.0833333)
+        0 17 9 15 3 21 (15.79)(0.25)
+        0 16 6 13 3 21 (11.2855)(0.0833333)
+        0 4 19 21 (9.41619)(0.0833333)
+        0 20 2 7 21 (11.9459)(0.5)
+        0 5 19 14 12 13 21 (11.9953)(0.416667)
+        0 1 2 7 21 (9.70431)(0.5)
+        0 9 11 15 3 21 (15.8431)(0.25)
+        0 5 9 11 15 14 12 21 (16.7154)(0.0833333)
+
+Primal_bound = 75.7099
+Dual_bound = 71.5485
+Gap = 0.0549661
+Columns geenrated: 473
+Iterations run: 13
+Press Enter to exit...
