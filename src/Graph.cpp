@@ -2,8 +2,10 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <random>
 #include <algorithm>
+#include <numeric>
+
 std::tuple<Graph, std::vector<double>, std::vector<double>>
-generate_random_graph(size_t n_customers, unsigned int seed) {
+generate_random_graph(size_t n_customers, unsigned int seed, double capacity) {
     std::mt19937 generator{seed}; // selecting generator
     std::uniform_real_distribution<> uni{1.0, 11.0}; // unif(1,11)
     const auto n_vertices = n_customers + 2u; // the plus 2 are vertices of depots
@@ -21,7 +23,29 @@ generate_random_graph(size_t n_customers, unsigned int seed) {
     demand[n_vertices - 1u] = 0.0;
 
     const auto max_demand = *std::ranges::max_element(demand);
-    const auto capacity = std::max(max_demand, 6.0 * static_cast<double>(n_vertices) / 4.0);
+    const double total_demand = std::accumulate(demand.begin(), demand.end(), 0);
+    if (capacity == 0)
+    {
+        capacity = std::max(max_demand, 6.0 * static_cast<double>(n_vertices) / 4.0);
+        std::cout << "Using the Default method to generate capacity constraint" << '\n'
+              << "Max demand is: " << max_demand << '\n'
+              << "Arbitary capacity limit is: " << 6.0 * static_cast<double>(n_vertices) / 4.0 << '\n'
+              << "Capacity set to " << capacity << '\n';
+
+    } else if ( capacity > 0 && capacity < 1)
+    {
+        std::cout << "Setting the capacity to " << capacity << " of total demand of all customers"<<'\n'
+                  << "Max demand is: " << max_demand << '\n'
+                  << capacity << " of total demand of all customers is " << total_demand * capacity << '\n';
+        capacity = std::max(max_demand, total_demand * capacity);
+        std::cout << "Capacity set to " << capacity << '\n';
+    } else
+    {
+        std::cout << "Setting the capacity to " << capacity <<'\n'
+                  << "Max demand is: " << max_demand << '\n';
+        capacity = std::max(max_demand, capacity);
+        std::cout << "Capacity set to " << capacity << '\n';
+    }
 
     Graph g;
 

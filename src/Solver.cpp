@@ -183,7 +183,9 @@ void Solver::solve_cg() {
     // Calculate the duration in the default unit (nanoseconds here)
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     double runtime = duration.count()/1000.0;
-
+    std::cout << "\n\n\n=======================================================\n"
+                    << "==================== Problem solved ===================\n"
+                    << "=======================================================\n";
     // Output the time taken
     std::cout << "Time taken: " << runtime << " seconds\n";
 
@@ -298,6 +300,9 @@ void Solver::solve_incremental_cg()
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     double runtime = duration.count()/1000.0;
 
+    std::cout << "\n\n\n=======================================================\n"
+                << "==================== Problem solved ===================\n"
+                << "=======================================================\n";
     // Output the time taken
     std::cout << "Time taken: " << runtime << " seconds\n";
 
@@ -419,6 +424,10 @@ void Solver::solve_incremental_k_best_cg(int k)
     // Calculate the duration in the default unit (milliseconds here)
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     double runtime = duration.count()/1000.0;
+
+    std::cout << "\n\n\n=======================================================\n"
+                << "==================== Problem solved ===================\n"
+                << "=======================================================\n";
 
     // Output the time taken
     std::cout << "Time taken: " << runtime << " seconds\n";

@@ -87,7 +87,7 @@ struct Graph {
     }
 };
 
-std::tuple<Graph, std::vector<double>, std::vector<double>> generate_random_graph(size_t n_customers, unsigned int seed);
+std::tuple<Graph, std::vector<double>, std::vector<double>> generate_random_graph(size_t n_customers, unsigned int seed, double capacity);
 void write_graphviz(const Graph& g, const std::string& filename);
 void print_grid(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys);
 void print_graph(const Graph& g, const std::vector<double>& xs, const std::vector<double>& ys);

@@ -44,7 +44,7 @@ void Solver::solve_ignoring_incremental_multiplicity_cg() // ALgorithm 5
         }
 
         if(new_routes.empty()) { // If still no new columns found, break
-            std::cout << "Solved SP. Found no column with <0 reduced cost.\n";
+            std::cout << "\nSolved SP. Found no column with <0 reduced cost.\n";
             break;
         }
 
@@ -87,6 +87,9 @@ void Solver::solve_ignoring_incremental_multiplicity_cg() // ALgorithm 5
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     double runtime = duration.count()/1000.0;
 
+    std::cout << "\n\n\n=======================================================\n"
+                << "==================== Problem solved ===================\n"
+                << "=======================================================\n";
     // Output the time taken
     std::cout << "Time taken: " << runtime << " seconds\n";
 
