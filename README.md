@@ -1,6 +1,6 @@
 # Column-Generation-VRP-with-Custom-Labeling-Algorithm
 
-This project code is written and maintained by me, but I would like to thank my supervisor Prof.Alberto Santini for his help. 
+This project code is written and maintained by me, but I would like to thank my supervisor [Prof. Alberto Santini](https://santini.in/) for his help. 
 
 If you have any questions or found any issues, please contact me at yutai.ke@bse.eu
 
