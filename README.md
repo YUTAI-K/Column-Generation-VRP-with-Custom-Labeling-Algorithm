@@ -8,7 +8,7 @@ If you have any questions or find any issues, please contact me at [yutai.ke@bse
 - C++ version 23 or later
 - Valid Gurobi library and license
 - Boost Graph Library (Recommend using vcpkg to manage the dependencies)
-- Preferred OS: Windows (For Linux/macOS, you might need to adjust the CMake files accordingly)
+- Preferred OS: Windows and Linux are tested. For MacOS small adjustment to Cmake files might be necessary.
 
 ## Usage
 1. Clone this repository:
