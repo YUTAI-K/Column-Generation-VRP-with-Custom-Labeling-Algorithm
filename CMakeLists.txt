@@ -3,7 +3,10 @@ project(cg) # Declare the project named 'cg'
 
 option(CXX "enable C++ compilation" ON) # Option to enable C++ compilation, default is ON
 
-set(CMAKE_CXX_STANDARD 23) # Set the C++ standard to C++23
+# Set the C++ standard to C++23, required for zip
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 if(CXX)
     enable_language(CXX) # Enable C++ language if the CXX option is ON
@@ -12,6 +15,10 @@ endif()
 # Add the current directory to CMake's module path to find FindGUROBI.cmake
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 
+# If cmake build type not set then set it to release
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Release")
+endif()
 message(STATUS "Build type: ${CMAKE_BUILD_TYPE}") # Display the build type
 
 # If using Visual Studio compiler with static runtime libraries
@@ -57,10 +64,19 @@ endif()
 find_package(GUROBI REQUIRED) # Find GUROBI package
 find_package(Boost REQUIRED COMPONENTS graph) # Find Boost graph component
 
-# Link libraries to the target
-target_link_libraries(${CMAKE_PROJECT_NAME} optimized ${GUROBI_CXX_LIBRARY}
+# Link boost headers
+target_include_directories(cg PRIVATE ${Boost_INCLUDE_DIRS})
+
+# Link Gurobi headers
+target_include_directories(cg PRIVATE ${GUROBI_INCLUDE_DIRS})
+
+# Link gurobi libraries to the target
+target_link_libraries(cg optimized ${GUROBI_CXX_LIBRARY}
         debug ${GUROBI_CXX_DEBUG_LIBRARY})
-target_link_libraries(${CMAKE_PROJECT_NAME} ${GUROBI_LIBRARY})
+target_link_libraries(cg ${GUROBI_LIBRARY})
+
+# Link boost libraries
+target_link_libraries(cg  ${Boost_LIBRARIES})
 
 # Include and summarize features if this is the top-level project
 if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
