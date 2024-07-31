@@ -1,27 +1,28 @@
-cmake_minimum_required(VERSION 3.16)
-project(cg)
+cmake_minimum_required(VERSION 3.16) # Require at least CMake version 3.16
+project(cg) # Declare the project named 'cg'
 
+option(CXX "enable C++ compilation" ON) # Option to enable C++ compilation, default is ON
 
-
-
-set(CMAKE_CXX_STANDARD 23)
-list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_CURRENT_SOURCE_DIR})
+set(CMAKE_CXX_STANDARD 23) # Set the C++ standard to C++23
 
 if(CXX)
-    enable_language(CXX)
+    enable_language(CXX) # Enable C++ language if the CXX option is ON
 endif()
+
+# Add the current directory to CMake's module path to find FindGUROBI.cmake
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR})
 
-message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}") # Display the build type
 
+# If using Visual Studio compiler with static runtime libraries
+if(MSVC AND MT)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT") # Set release flags
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd") # Set debug flags
+    set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MT") # Set release flags for C
+    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd") # Set debug flags for C
+endif()
 
-#if(MSVC AND MT)
-#    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-#    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
-#    set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MT")
-#    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd")
-#endif()
-
+# Add executable named 'cg' with source files
 add_executable(cg
         src/Graph.cpp
         src/Graph.h
@@ -38,56 +39,36 @@ add_executable(cg
         src/Solver_3.cpp
 )
 
-# Check if the compiler is MSVC and set specific options
+# Set compiler-specific options
 if(MSVC)
-    set(WARNING_OPTIONS     /W4)
-    set(DEBUG_OPTIONS       /Od /Zi)
-    set(GDB_DEBUG_OPTIONS   /Zi /DEBUG)
-    set(LINKER_OPTIONS      /INCREMENTAL:NO /OPT:REF)
+    set(WARNING_OPTIONS     /W4) # High warning level
+    set(DEBUG_OPTIONS       /Od /Zi) # Debug options
+    set(GDB_DEBUG_OPTIONS   /Zi /DEBUG) # GDB debug options
+    set(LINKER_OPTIONS      /INCREMENTAL:NO /OPT:REF) # Linker options
 else()
-    # Assuming the else block is for GCC as per your original setup
-    set(WARNING_OPTIONS     -Wall -Wextra -Werror)
-    set(GCC_WARNING_OPTIONS -Wduplicated-cond -Wlogical-op -Wuseless-cast -Wrestrict)
-    set(DEBUG_OPTIONS       -O0 -g)
-    set(GDB_DEBUG_OPTIONS   -ggdb)
-    set(LINKER_OPTIONS      -flto)
+    set(WARNING_OPTIONS     -Wall -Wextra -Werror) # High warning level for GCC
+    set(GCC_WARNING_OPTIONS -Wduplicated-cond -Wlogical-op -Wuseless-cast -Wrestrict) # Additional GCC warnings
+    set(DEBUG_OPTIONS       -O0 -g) # Debug options
+    set(GDB_DEBUG_OPTIONS   -ggdb) # GDB debug options
+    set(LINKER_OPTIONS      -flto) # Linker options
 endif()
 
-# Visual Studio compiler with static runtime libraries
-#if(MSVC AND MT)
-#    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-#    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
-#    set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MT")
-#    set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MTd")
-#endif()
+# Find required packages
+find_package(GUROBI REQUIRED) # Find GUROBI package
+find_package(Boost REQUIRED COMPONENTS graph) # Find Boost graph component
 
+# Link libraries to the target
+target_link_libraries(${CMAKE_PROJECT_NAME} optimized ${GUROBI_CXX_LIBRARY}
+        debug ${GUROBI_CXX_DEBUG_LIBRARY})
+target_link_libraries(${CMAKE_PROJECT_NAME} ${GUROBI_LIBRARY})
 
-find_package(GUROBI REQUIRED)
-find_package(Boost REQUIRED COMPONENTS graph)
-
-target_include_directories( cg SYSTEM PRIVATE ${GUROBI_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
-target_compile_options(     cg PRIVATE ${WARNING_OPTIONS})
-target_compile_options(     cg PRIVATE $<$<CXX_COMPILER_ID:GNU>:${GCC_WARNING_OPTIONS}>)
-target_compile_options(     cg PRIVATE $<$<CONFIG:DEBUG>:${DEBUG_OPTIONS}>)
-target_compile_options(     cg PRIVATE $<$<AND:$<CONFIG:DEBUG>,$<CXX_COMPILER_ID:GNU>>:${GDB_DEBUG_OPTIONS}>)
-
-################################################################
-#target_link_libraries(      cg
-#        optimized ${GUROBI_CXX_LIBRARY} debug ${GUROBI_CXX_DEBUG_LIBRARY})
-if(CMAKE_BUILD_TYPE MATCHES Debug)
-    set(TARGET_LIB ${GUROBI_CXX_DEBUG_LIBRARY})
-else()
-    set(TARGET_LIB ${GUROBI_CXX_LIBRARY})
+# Include and summarize features if this is the top-level project
+if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
+    include(FeatureSummary)
+    feature_summary(WHAT ALL)
 endif()
-target_link_libraries(cg ${TARGET_LIB})
-##################################################################3
 
-
-
-target_link_libraries(      cg ${GUROBI_LIBRARY})
-target_link_libraries(      cg PRIVATE ${BOOST_GRAPH_LIBRARY})
-
-
+# Display the paths of the Gurobi libraries
 message(STATUS "GUROBI_LIBRARY IS ${GUROBI_LIBRARY}")
 message(STATUS "GUROBI_CXX_LIBRARY IS ${GUROBI_CXX_LIBRARY}")
 message(STATUS "GUROBI_CXX_DEBUG_LIBRARY IS ${GUROBI_CXX_DEBUG_LIBRARY}")
