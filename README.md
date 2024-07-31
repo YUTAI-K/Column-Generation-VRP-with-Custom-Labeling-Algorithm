@@ -17,7 +17,7 @@ If you have any questions or find any issues, please contact me at [yutai.ke@bse
     ```
 2. Build the project.
 3. For a detailed explanation of the methods and algorithms used, please consult the [User Manual](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf).
-4. If you want to run it directly please look at the folder ["Prebuilt application(exe) and logs"](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/tree/main/Builded%20application(exe)), it contains the console application built from the project code and logs of running the application selecting different algorithms. 
+4. If you want to run it directly please look at the folder ["Prebuilt application(exe) and logs"](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/tree/main/Prebuilt%20application(exe)%20and%20logs), it contains the console application built from the project code and logs of running the application selecting different algorithms. 
 
 ## Project Structure
 The project source code is organized as follows:
