@@ -19,6 +19,13 @@ If you have any questions or find any issues, please contact me at [yutai.ke@bse
 3. For a detailed explanation of the methods and algorithms used, please consult the [User Manual](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf).
 4. If you want to run it directly please look at the folder ["Prebuilt application(exe) and logs"](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/tree/main/Prebuilt%20application(exe)%20and%20logs), it contains the console application built from the project code and logs of running the application selecting different algorithms. 
 
+## Running the applications
+- Prompts the user to input the number of customers to serve.
+- Generates a random graph including customers and the starting & ending depot. Provides visualization. 
+- Asks the user to specify the capacity limit for each vehicle.
+- Offers a choice among five algorithms, some of which I developed myself.
+- Solves the problem and reports the results.
+
 ## Project Structure
 The project source code is organized as follows:
 
