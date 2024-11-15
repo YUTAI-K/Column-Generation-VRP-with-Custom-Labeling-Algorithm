@@ -7,22 +7,23 @@ If you have any questions or find any issues, please contact me at [yutai.ke@bse
 ## Requirements
 - C++ version 23 or later
 - Valid Gurobi library and license
-- Boost Graph Library (Recommend using vcpkg to manage the dependencies)
-- Preferred OS: Windows and Linux are tested. For MacOS small adjustment to Cmake files might be necessary.
+- Boost Graph Library 
 
 ## Usage
 1. Clone this repository:
     ```sh
     git clone https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm.git
     ```
-2. Build the project.
+2. Build the project. This project requires the boost graph library, which can be installed by following the instructions on its [official website](https://www.boost.org/), or by useing a package manager like apt for linux, Homebrew for macOS, or vcpkg for Windows.
 3. For a detailed explanation of the methods and algorithms used, please consult the [User Manual](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf).
-4. If you want to run it directly please look at the folder ["Prebuilt application(exe) and logs"](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/tree/main/Prebuilt%20application(exe)%20and%20logs), it contains the console application built from the project code and logs of running the application selecting different algorithms. 
 
-## Running the applications
+
+## Running the application
+When executed, the console applciation will:
 - Prompts the user to input the number of customers to serve.
+- Prompts the user to input an integer for seeding, which guarantees reproducibility.
+- Asks the user to specify the capacity limit for the vehicles, instructions are provided.
 - Generates a random graph including customers and the starting & ending depot. Provides visualization. 
-- Asks the user to specify the capacity limit for each vehicle.
 - Offers a choice among five algorithms, some of which I developed myself.
 - Solves the problem and reports the results.
 
