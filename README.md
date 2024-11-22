@@ -1,4 +1,7 @@
 # Column-Generation-VRP-with-Custom-Labeling-Algorithm
+This repository is part of my master’s thesis, **"Enhancing Algorithm Efficiency for the Vehicle Routing Problem: A Heuristic Approach Based on Column Generation"**. The project focuses on improving algorithmic efficiency for solving the Vehicle Routing Problem (VRP) through a novel heuristic approach, utilizing column generation combined with a custom labeling algorithm.
+
+The original research paper is currently under revision. However, a comprehensive explanation of the deployed algorithms, along with detailed testing results, can be found in the accompanying [User Manual](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf).
 
 This project code is written and maintained by me, however, I would like to thank my supervisor, [Prof. Alberto Santini](https://santini.in/), for his help.
 
@@ -43,5 +46,3 @@ for configuring the build conditions for the project.
 - **[FindGurobi.cmake](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/FindGurobi.cmake)**: The CMake file necessary to find Gurobi on your computer, please visit the [Gurobi Support Website](https://support.gurobi.com/hc/en-us/articles/360039499751-How-do-I-use-CMake-to-build-Gurobi-C-C-projects) for details.
 - **[vcpkg.json](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/vcpkg.json)**: The vcpkg file used to manage dependencies. 
 
-## Algorithm Testing Report
-Please consult the [Algorithm Testing Report](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/Algorithm_testing_report.pdf) for detailed testing results and analysis.
