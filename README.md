@@ -18,7 +18,7 @@ If you have any questions or find any issues, please contact me at [yutai.ke@bse
     git clone https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm.git
     ```
 2. Build the project. This project requires the boost graph library, which can be installed by following the instructions on its [official website](https://www.boost.org/), or by using a package manager like apt for linux, Homebrew for macOS, or vcpkg for Windows.
-3. For a detailed explanation of the methods and algorithms used, please consult the [User Manual](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf).
+3. For a detailed explanation of the methods and algorithms used, please consult the [paper](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/Enhancing_Algorithm_Efficiency_for_the_Vehicle_Routing_Problem__A_Heuristic_Approach_Based_on_Column_Generation_.pdf).
 
 
 ## Running the application
