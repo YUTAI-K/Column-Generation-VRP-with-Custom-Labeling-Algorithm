@@ -1,7 +1,7 @@
 # Column-Generation-VRP-with-Custom-Labeling-Algorithm
 This repository is part of my master’s thesis, **"Enhancing Algorithm Efficiency for the Vehicle Routing Problem: A Heuristic Approach Based on Column Generation"**. The project focuses on improving algorithmic efficiency for solving the Vehicle Routing Problem (VRP) through a novel heuristic approach, utilizing column generation combined with a custom labeling algorithm.
 
-The original research paper is available on this repository, click [here to access it.]([https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/User_Manual.pdf](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/Enhancing_Algorithm_Efficiency_for_the_Vehicle_Routing_Problem__A_Heuristic_Approach_Based_on_Column_Generation_.pdf))
+The original research paper is available on this repository, click [here to access it.](https://github.com/YUTAI-K/Column-Generation-VRP-with-Custom-Labeling-Algorithm/blob/main/Enhancing_Algorithm_Efficiency_for_the_Vehicle_Routing_Problem__A_Heuristic_Approach_Based_on_Column_Generation_.pdf).
 
 This project code is written and maintained by me, however, I would like to thank my supervisor, [Prof. Alberto Santini](https://santini.in/), for his help.
 
