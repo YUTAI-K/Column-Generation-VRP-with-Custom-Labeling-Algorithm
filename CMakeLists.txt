@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16) # Require at least CMake version 3.16
+cmake_minimum_required(VERSION 3.23) # Require at least CMake version 3.16
 project(cg) # Declare the project named 'cg'
 
 option(CXX "enable C++ compilation" ON) # Option to enable C++ compilation, default is ON
