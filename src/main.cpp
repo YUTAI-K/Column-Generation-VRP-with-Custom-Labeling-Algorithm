@@ -48,11 +48,11 @@ int main() {
 
     // Prompt user for solver choice
     std::cout << "Select the solving method:\n";
-    std::cout << "1: solve_cg\n";
-    std::cout << "2: solve_incremental_cg\n";
-    std::cout << "3: solve_incremental_k_best_cg (enter k after selection)\n";
-    std::cout << "4: solve_ignoring_incremental_cg\n";
-    std::cout << "5: solve_ignoring_incremental_multiplicity_cg\n";
+    std::cout << "1: ELA\n";
+    std::cout << "2: SSRELA\n";
+    std::cout << "3: K-best SSRELA (enter k after selection)\n";
+    std::cout << "4: I-SSRELA\n";
+    std::cout << "5: I-M-SSRELA\n";
     std::cout << "Enter your choice: ";
     std::cin >> solver_choice;
 
